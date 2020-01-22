@@ -12,7 +12,7 @@
 	<artifactId>ConfigServer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ConfigServer</name>
-	<description>Demo project for Spring Boot</description>
+	<description>E-Commerce Configuration Server</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -29,12 +29,6 @@
 			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
