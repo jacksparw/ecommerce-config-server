@@ -2,6 +2,8 @@ FROM openjdk:8-jdk-alpine
 
 VOLUME /tmp
 COPY UnlimitedJCEPolicyJDK8/* /usr/lib/jvm/java-1.8-openjdk/jre/lib/security/
-ADD target/ConfigServer-0.0.1-SNAPSHOT.jar config-server-service.jar
-RUN sh -c 'touch /config-server-service.jar'
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/config-server-service.jar"]
+ARG DEPENDENCY=target/dependency
+COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY ${DEPENDENCY}/META-INF /app/META-INF
+COPY ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT ["java","-cp","app:app/lib/*","com.ecommerce.configserver.ConfigServerApplication"]
